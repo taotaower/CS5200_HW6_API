@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 let connectionString = 'mongodb://localhost/hw6'; // for local
 
 
-if(process.env.MLAB_USERNAME_WEBDEV) { // check if running remotely
+if(process.env.MLAB_USERNAME_HW6) { // check if running remotely
     let username = process.env.MLAB_USERNAME_HW6; // get from environment
     let password = process.env.MLAB_PASSWORD_HW6;
 
