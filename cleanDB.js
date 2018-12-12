@@ -24,7 +24,5 @@ cleanDB.start = () => {
 };
 
 
-// https://mongoosejs.com/docs/api.html#schema_Schema-add
-
 module.exports = cleanDB;
 

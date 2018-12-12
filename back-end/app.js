@@ -4,12 +4,14 @@ let connectionString = 'mongodb://localhost/hw6'; // for local
 
 
 if(process.env.MLAB_USERNAME_WEBDEV) { // check if running remotely
-    let username = process.env.MLAB_USERNAME_WEBDEV; // get from environment
-    let password = process.env.MLAB_PASSWORD_WEBDEV;
+    let username = process.env.MLAB_USERNAME_HW6; // get from environment
+    let password = process.env.MLAB_PASSWORD_HW6;
 
     connectionString = 'mongodb://' + username + ':' + password;
-    connectionString += '@ds117250.mlab.com:17250/heroku_rbdgfw80';
+    connectionString += '@ds131954.mlab.com:31954/heroku_lj85h62m';
 }
+
+// mongodb://<dbuser>:<dbpassword>@ds131954.mlab.com:31954/heroku_lj85h62m
 
 mongoose.connect(connectionString);
 
