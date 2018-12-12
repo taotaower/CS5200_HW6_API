@@ -4,6 +4,7 @@
   "description": "HW6 API",
   "main": "server.js",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "mongoose": "^4.4.15",
     "promise": "^8.0.2"
