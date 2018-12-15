@@ -161,13 +161,10 @@ function getTable2ByTable1(req,res){
     model.find({table1: item1_id}).then(
         rels => {
 
-            console.log("rels", rels);
-
             helpers.checkNull(rels,res);
 
             let item2s = rels.map(
                 rel => {
-                    console.log("rel", rel);
                     return rel._doc[table2];
                 }
             );
