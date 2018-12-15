@@ -175,7 +175,7 @@ function getTable2ByTable1(req,res){
 
             let table2Model = helpers.allModels[table2];
 
-            return table2Model.find({id: {$in: item2s}})
+            return table2Model.find({_id: {$in: item2s}})
         },
         err =>{
             res.send(err);
