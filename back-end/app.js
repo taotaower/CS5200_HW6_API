@@ -11,11 +11,8 @@ if(process.env.MLAB_USERNAME_HW6) { // check if running remotely
     connectionString += '@ds131954.mlab.com:31954/heroku_lj85h62m';
 }
 
-// mongodb://<dbuser>:<dbpassword>@ds131954.mlab.com:31954/heroku_lj85h62m
 
 mongoose.connect(connectionString);
 
-
-require('./services/actor.service');
-require('./services/actor_movie.service');
-require('./services/movie.service');
+require('./services/oneTable.service');
+require('./services/relationTable.service');

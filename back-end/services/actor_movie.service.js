@@ -1,7 +1,4 @@
 const app = require('../../express');
-const actorMovieModel = require('../models/actor_movie/actor_movie.model');
-const actorModel = require('../models/actor/actor.model');
-const movieModel = require('../models/movie/movie.model');
 const helpers = require('./helpers');
 
 app.post('/api/actor/:actor_id/movie/:movie_id', createRelation);
@@ -111,7 +108,7 @@ function getActorByMovie(req,res) {
             helpers.checkNull(actors,res);
 
             let newActors = actors.map(actor => {
-                return helpers.addNullTofields(helpers.actorSchema,actor);
+                return helpers.addNullTofields(helpers.actorSchema, actor);
             });
 
             res.json(newActors)
