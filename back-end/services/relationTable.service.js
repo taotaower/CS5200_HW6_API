@@ -166,7 +166,6 @@ function getTable2ByTable1(req,res){
                     return rel._doc[table2];
                 }
             );
-            console.log("item2s", item2s);
 
             let table2Model = helpers.allModels[table2];
 
