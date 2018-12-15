@@ -34,6 +34,7 @@ function createRelation(req,res){
     }else{
 
         helpers.generateRelationSchema(table1,table2);
+        model =  helpers.relationModels[relationModelName];
     }
 
     model.create({
@@ -155,11 +156,8 @@ function getTable2ByTable1(req,res){
         return;
     }
 
-
-
     model.find({table1: item1_id}).then(
         rels => {
-
             helpers.checkNull(rels,res);
 
             let item2s = rels.map(
@@ -167,6 +165,7 @@ function getTable2ByTable1(req,res){
                     return rel._doc[table2];
                 }
             );
+            console.log("item2s", item2s);
 
             let table2Model = helpers.allModels[table2];
 
