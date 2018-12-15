@@ -3,9 +3,9 @@ const helpers = require('./helpers');
 
 app.post('/api/:table1/:item1_id/:table2/:item2_id', createRelation);
 
-app.get('/api/:table1/:id/:table2', getTable2ByTable1);
+app.get('/api/:table1/:item1_id/:table2', getTable2ByTable1);
 
-app.get('/api/:table1/:id/:table2?:predicates',);
+app.get('/api/:table1/:item1_id/:table2?:predicates',);
 
 app.delete('/api/:table1/:item1_id/table2/:item2_id', deleteRelation);
 
@@ -156,12 +156,18 @@ function getTable2ByTable1(req,res){
         return;
     }
 
+    console.log("item1_id", item1_id);
+
     model.find({table1: item1_id}).then(
         rels => {
+
+            console.log("rels", rels);
+
             helpers.checkNull(rels,res);
 
             let item2s = rels.map(
                 rel => {
+                    console.log("rel", rel);
                     return rel._doc[table2];
                 }
             );
