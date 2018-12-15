@@ -156,8 +156,6 @@ function getTable2ByTable1(req,res){
         return;
     }
 
-    console.log("item1_id", item1_id);
-
     model.find({table1: item1_id}).then(
         rels => {
 
