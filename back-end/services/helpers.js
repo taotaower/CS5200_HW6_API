@@ -49,8 +49,8 @@ function generateRelationSchema(table1, table2){
     let tableName = table1 + '_' + table2;
 
     allRelationSchemas[tableName] = mongoose.Schema({
-        table1: {type: mongoose.Schema.ObjectId, ref: table1 + "Model"},
-        table2: {type: mongoose.Schema.ObjectId, ref: table2 + "Model"},
+        [table1]: {type: mongoose.Schema.ObjectId, ref: table1 + "Model"},
+        [table2]: {type: mongoose.Schema.ObjectId, ref: table2 + "Model"},
     },{collection: tableName});
 
     relationModels[tableName] = mongoose.model(tableName + 'Model', allRelationSchemas[tableName]);
