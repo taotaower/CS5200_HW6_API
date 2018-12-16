@@ -28,7 +28,8 @@ function createRelation(req,res){
         model = relationModel;
 
     }else if(!helpers.checkNotExist(relationReversedModel)){
-
+        [table1, table2] = [table2,table1];
+        [item1_id, item2_id] = [item2_id,item1_id];
         model = relationReversedModel;
 
     }else{
@@ -77,8 +78,8 @@ function deleteRelation(req,res){
     }
 
     model.remove({
-        table1: item1_id,
-        table2: item2_id,
+        [table1]: item1_id,
+        [table2]: item2_id,
     }).then(msg => {
 
             res.json('delete relation successfully');
@@ -118,7 +119,7 @@ function deleteRelationByTable1(req,res) {
 
 
     model.remove({
-        table1: item1_id,
+        [table1]: item1_id,
 
     }).then(msg => {
             res.json('delete relation successfully');
@@ -156,7 +157,7 @@ function getTable2ByTable1(req,res){
         return;
     }
 
-    model.find({table1: item1_id}).then(
+    model.find({[table1]: item1_id}).then(
         rels => {
 
             helpers.checkNull(rels,res);
